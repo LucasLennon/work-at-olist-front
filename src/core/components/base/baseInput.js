@@ -1,6 +1,5 @@
 const html = `
     <div>
-        <label></label>
         <input/>
     </div>
 `;
@@ -29,7 +28,11 @@ template.innerHTML = `
 `;
 class Label {
     constructor(instance) {
-        instance.shadowRoot.querySelector('label').innerHTML = instance.getAttribute('label');
+        if (instance.getAttribute('label')){
+            const LABEL = document.createElement('label');
+            LABEL.innerHTML = instance.getAttribute('label');
+            instance.shadowRoot.querySelector('div').prepend(LABEL)
+        }
     }
     
 }
