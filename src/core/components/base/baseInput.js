@@ -1,3 +1,5 @@
+import addAttributes from "../../utils/addAttributes.js";
+
 const html = `
     <div>
         <input/>
@@ -40,7 +42,12 @@ class Label {
 }
 class Input {
     constructor(instance) {
-        instance.shadowRoot.querySelector('input').type = instance.getAttribute('type');
+        const INPUT = instance.shadowRoot.querySelector('input');
+        addAttributes(INPUT, instance.attributes)
+        INPUT.onkeyup = () => console.log('changed');
+
+        // INPUT.onkeyup(() => console.log('changed'))
+        // INPUT.onchange(() => console.log('changed'))
     }
 }
 class BaseInputComponent extends HTMLElement {
