@@ -6,12 +6,16 @@ const html = `
 const style = `
 <style>
     div.card {
-        display: grid;
-        justify-items: center;
-        justify-content: center;
         background: #FFFFFF;
         border: 3px solid #F2F2F2;
         box-sizing: border-box;
+        display: grid;
+        grid-gap: 24px;
+        justify-items: center;
+        justify-content: center;
+        margin: 2rem 0;
+        padding: 3rem 0;
+        width: 515px;
     }
 </style>`;
 const template = document.createElement('template');
@@ -19,7 +23,7 @@ template.innerHTML = `
     ${style}
     ${html}
 `;
-class BaseCard extends HTMLElement {
+class BaseCardComponent extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({ mode: 'open' });
@@ -27,4 +31,4 @@ class BaseCard extends HTMLElement {
     }
 }
 
-export default window.customElements.define('base-card', BaseCard);
+export default window.customElements.define('b-card', BaseCardComponent);

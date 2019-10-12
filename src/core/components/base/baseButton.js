@@ -6,7 +6,7 @@ const html = `
 const style = `
 <style>
     button {
-        background: #17D499;
+        background: var(--primary);
         border: 0;
         color: #FFFFFF;
         padding: .5rem;
@@ -23,13 +23,11 @@ template.innerHTML = `
     ${style}
     ${html}
 `;
-class BaseButton extends HTMLElement {
+class BaseButtonComponent extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-        // this.setButton()
     }
     // // Methods
     // handleClick(e) {
@@ -43,4 +41,4 @@ class BaseButton extends HTMLElement {
     // }
 }
 
-export default window.customElements.define('base-button', BaseButton);
+export default window.customElements.define('b-button', BaseButtonComponent);
