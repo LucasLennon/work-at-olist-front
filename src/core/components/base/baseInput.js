@@ -10,6 +10,7 @@ const style = `
         grid-auto-flow: row;
     }
     label{
+        color: var(--accent);
         font-size: 16px;
         line-height: 26px;
     }
@@ -19,6 +20,7 @@ const style = `
         box-sizing: border-box;
         box-shadow: inset 0px 3px 3px rgba(0, 0, 0, 0.05);
         font-size: 16px;
+        padding: .5rem .75rem;
     }
 </style>`;
 const template = document.createElement('template');
