@@ -13,6 +13,7 @@ const style = `
         text-align: center;
         font-size: 18px;
         line-height: 30px;
+        width: 100%;
     }
     button:disabled{
         background: #ddd;
@@ -29,16 +30,10 @@ class BaseButtonComponent extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
-    // // Methods
-    // handleClick(e) {
-    //     alert("Sup?");
-    // }
-
-    // // Componente
-    // setButton(){
-    //     const button = this.shadowRoot.querySelector("button");
-    //     button.addEventListener("click", this.handleClick);
-    // }
+    setDisabled(value){
+        const button = this.shadowRoot.querySelector("button");
+        button.disabled = value;
+    }
 }
 
 export default window.customElements.define('b-button', BaseButtonComponent);
