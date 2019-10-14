@@ -10,9 +10,6 @@ const style = `
         border: 3px solid #F2F2F2;
         box-sizing: border-box;
         display: grid;
-        grid-gap: 24px;
-        justify-items: center;
-        justify-content: center;
         margin: 2rem 0;
         padding: 3rem 0;
         width: 515px;
