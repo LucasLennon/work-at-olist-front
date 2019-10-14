@@ -9,12 +9,14 @@
 <body>
     <main-app>
         <b-card>
-            <h3>Crie sua conta</h3>
-            <b-input label="Nome Completo" name="name" type="text"></b-input>
-            <b-input label="E-mail" name="email" type="text"></b-input>
-            <b-input label="Senha" name="password" type="password"></b-input>
-            <b-input label="Confirme sua senha" name="confirmPassword" type="password"></b-input>
-            <b-button> Criar conta </b-button>
+            <form-registration>
+                <h3 style="text-align:center;">Crie sua conta</h3>
+                <b-input model="name" label="Nome Completo" name="name" type="text" required="true"></b-input>
+                <b-input model="email" label="E-mail" name="email" type="text" required="true"></b-input>
+                <b-input model="password" placeholder="key" label="Senha" name="password" type="password" required="true"></b-input>
+                <b-input model="confirmPassword" label="Confirme sua senha" name="confirmPassword" type="password" required="true"></b-input>
+                <b-button> Criar conta </b-button>
+            </form-registration>
         </b-card>
     </main-app>
 </body>
