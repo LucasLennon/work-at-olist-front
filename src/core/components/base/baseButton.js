@@ -6,13 +6,14 @@ const html = `
 const style = `
 <style>
     button {
-        background: #17D499;
+        background: var(--primary);
         border: 0;
         color: #FFFFFF;
         padding: .5rem;
         text-align: center;
         font-size: 18px;
         line-height: 30px;
+        width: 100%;
     }
     button:disabled{
         background: #ddd;
@@ -23,24 +24,16 @@ template.innerHTML = `
     ${style}
     ${html}
 `;
-class BaseButton extends HTMLElement {
+class BaseButtonComponent extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
-
-        // this.setButton()
     }
-    // // Methods
-    // handleClick(e) {
-    //     alert("Sup?");
-    // }
-
-    // // Componente
-    // setButton(){
-    //     const button = this.shadowRoot.querySelector("button");
-    //     button.addEventListener("click", this.handleClick);
-    // }
+    setDisabled(value){
+        const button = this.shadowRoot.querySelector("button");
+        button.disabled = value;
+    }
 }
 
-export default window.customElements.define('base-button', BaseButton);
+export default window.customElements.define('b-button', BaseButtonComponent);
