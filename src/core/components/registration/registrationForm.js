@@ -36,13 +36,14 @@ class RegistrationFormComponent extends HTMLElement {
     }
     get formReady() {
         if (
-        !!this._name &&
-        !!this._email &&
-        !!this._password &&
-        !!this._confirmPassword &&
-        atLeastSixCharacters(this._password) &&
-        atLeastOneUpperCase(this._password) &&
-        atLeastOneNumber(this._password)
+            !!this._name &&
+            !!this._email &&
+            !!this._password &&
+            !!this._confirmPassword &&
+            this._password === this._confirmPassword &&
+            atLeastSixCharacters(this._password) &&
+            atLeastOneUpperCase(this._password) &&
+            atLeastOneNumber(this._password)
         ) {
             return true
         }
