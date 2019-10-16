@@ -38,16 +38,18 @@ class Label {
             instance.shadowRoot.querySelector('div').prepend(LABEL)
         }
     }
-    
 }
 class Input {
     constructor(instance) {
         const INPUT = instance.shadowRoot.querySelector('input');
         addAttributes(INPUT, instance.attributes)
-        INPUT.onkeyup = () => console.log('changed');
 
-        // INPUT.onkeyup(() => console.log('changed'))
-        // INPUT.onchange(() => console.log('changed'))
+        // Actions
+        INPUT.onkeyup = () => this.emitChange(instance, INPUT.value);
+    }
+    emitChange(instance, value){    
+        const PARENT_DATA = instance.parentElement;
+        PARENT_DATA[instance.getAttribute('model')] = value;
     }
 }
 class BaseInputComponent extends HTMLElement {
@@ -55,6 +57,8 @@ class BaseInputComponent extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+    connectedCallback(){
         new Label(this);
         new Input(this);
     }
