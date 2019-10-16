@@ -3,9 +3,9 @@ export function atLeastSixCharacters(password) {
 }
 
 export function atLeastOneUpperCase(password) {
-    return password.match(/([A-Z])+/g).length > 0;
+    return !!password.match(/([A-Z])+/g);
 }
 
 export function atLeastOneNumber(password) {
-    return password.match(/([\d])+/g).length > 0;
+    return !!password.match(/([\d])+/g);
 }
